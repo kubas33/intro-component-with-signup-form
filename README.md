@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/kubas33/intro-component-with-signup-form
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://kubas33.github.io/intro-component-with-signup-form/
 
 ## My process
 
