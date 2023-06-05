@@ -11,12 +11,26 @@ let hasErrors = true;
 function errorEmpty(input){
     if (input === email)
     return "Email cannot be empty";
-    else 
+    else
     return `${input.placeholder} cannot be empty`;
 };
 
-console.log(errorEmpty(fName));
-console.log(errorEmpty(email));
+function toggleErrors(state, object) {
+    const input = object;
+    const error = input.parentNode.querySelector("p.error");
+    const errorIcon = input.parentNode.querySelector("img.error");
+    if (state == true) {
+        error.classList.add("active");
+        errorIcon.classList.add("active");
+        this.classList.add("invalid");
+        hasErrors = true;
+    } else if (state == false) {
+        error.classList.remove("active");
+        errorIcon.classList.remove("active");
+        this.classList.remove("invalid");
+        hasErrors = false;
+    }
+}
 
 Array.from(inputs).forEach((input) => {
     input.addEventListener("input", handleInputChange);
@@ -28,31 +42,21 @@ function handleInputChange(event) {
     const input = this;
     const error = input.parentNode.querySelector("p.error");
     const errorIcon = input.parentNode.querySelector("img.error");
-    console.log(this);
     if (input.validity.valueMissing) {
         error.textContent = errorEmpty(input);
-        error.classList.add("active");
-        errorIcon.classList.add("active"); 
-        hasErrors = true;
+        toggleErrors(true, this);
     }
     else if (input.type === "email") {
         if (input.validity.typeMismatch) {
             error.textContent = "Looks like this is not an email";
-            errorIcon.classList.add("active");
-            error.classList.add("active");
-            hasErrors = true;
+            toggleErrors(true, this);
         } else {
-            error.classList.remove("active");
-            errorIcon.classList.remove("active");
-            hasErrors = false;
+            toggleErrors(false, this);
         }
     }
     else {
-        error.classList.remove("active");
-        errorIcon.classList.remove("active");
-        hasErrors = false;
+        toggleErrors(false, this);
     }
-    
 };
 
 form.addEventListener("submit", (event) => {
@@ -62,7 +66,6 @@ form.addEventListener("submit", (event) => {
     Array.from(inputs).forEach((input) => {
         handleInputChange.call(input);
     });
-    
 });
 /*
 email.addEventListener("input", (event) => {
