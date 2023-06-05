@@ -19,15 +19,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--col-prim-red);
+    min-height: 100dvh;
+    display: grid;
+    place-content: center;
 }
 
-main {
+section {
     display: grid;
     max-width: 90vw;
     margin: auto;
     text-align: center;
     color: hsl(0, 10%, 100%);
     padding-top: 3vh;
+    row-gap: 1rem;
 }
 
 h1 {
@@ -47,6 +51,110 @@ hgroup {
     -moz-border-radius: .6rem;
     -ms-border-radius: .6rem;
     -o-border-radius: .6rem;
+    max-height: min-content;
+    font-weight: 400;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: .8rem;
+    color: var(--col-neut-gray-blue);
+    padding: 1.4rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+ul li {
+    border-radius: .5rem;
+    min-width: 100%;
+    position: relative;
+}
+
+input, #submit {
+    padding: 1rem;
+    width: 100%;
+    border-radius: .3rem;
+}
+
+input {
+    border: 1px solid var(--col-neut-gray-blue);
+    font-weight: 700;
+}
+
+input:invalid {
+    border: 2px solid var(--col-prim-red);
+}
+
+#submit {
+    background-color: var(--col-prim-green);
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    font-weight: 600;
+}
+
+.terms {
+    font-weight: 400;
+    font-size: .7rem;
+    padding: .7rem;
+}
+.terms a {
+    color: var(--col-prim-red);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.error {
+    display: none;
+    text-align: right;
+    font-size: .6rem;
+    color: var(--col-prim-red);
+    font-weight: 600;
+    margin-top: .2rem;
+    font-style: italic;
+}
+
+.active {
+    display: block;
+}
+
+img.error {
+    position: absolute;
+    right: 1rem;
+    bottom: calc(50% - 6px);
+}
+
+@media screen and (min-width: 38rem) {
+
+    body {
+        background-image: url(./images/bg-intro-desktop.png);
+    }
+    section {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .1fr 1fr;
+        text-align: left;
+        column-gap: 5vw;
+    }
+
+    h1 {
+        padding: 1.5rem 0;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    hgroup {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+
+    }
+
+    .try-it {
+        padding: 1rem 3rem;
+    }
 }
 
 .visually-hidden {
