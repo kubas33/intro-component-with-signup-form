@@ -140,6 +140,23 @@ img.error {
     bottom: calc(50% - 6px);
 }
 
+@media(hover: hover) and (pointer: fine) {
+    #submit:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+        background-color: rgb(83, 230, 166);
+        transition: transform .5s;
+        -webkit-transition: transform .5s;
+        -moz-transition: transform .5s;
+        -ms-transition: transform .5s;
+        -o-transition: transform .5s;
+        -webkit-transform: scale(1.03);
+        -moz-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        -o-transform: scale(1.03);
+}
+}
+
 @media screen and (min-width: 38rem) {
 
 

@@ -16,18 +16,17 @@ function errorEmpty(input){
 };
 
 function toggleErrors(state, object) {
-    const input = object;
-    const error = input.parentNode.querySelector("p.error");
-    const errorIcon = input.parentNode.querySelector("img.error");
+    const error = object.parentNode.querySelector("p.error");
+    const errorIcon = object.parentNode.querySelector("img.error");
     if (state == true) {
         error.classList.add("active");
         errorIcon.classList.add("active");
-        this.classList.add("invalid");
+        object.classList.add("invalid");
         hasErrors = true;
     } else if (state == false) {
         error.classList.remove("active");
         errorIcon.classList.remove("active");
-        this.classList.remove("invalid");
+        object.classList.remove("invalid");
         hasErrors = false;
     }
 }
@@ -41,21 +40,20 @@ Array.from(inputs).forEach((input) => {
 function handleInputChange(event) {
     const input = this;
     const error = input.parentNode.querySelector("p.error");
-    const errorIcon = input.parentNode.querySelector("img.error");
     if (input.validity.valueMissing) {
         error.textContent = errorEmpty(input);
-        toggleErrors(true, this);
+        toggleErrors(true, input);
     }
     else if (input.type === "email") {
         if (input.validity.typeMismatch) {
             error.textContent = "Looks like this is not an email";
-            toggleErrors(true, this);
+            toggleErrors(true, input);
         } else {
-            toggleErrors(false, this);
+            toggleErrors(false, input);
         }
     }
     else {
-        toggleErrors(false, this);
+        toggleErrors(false, input);
     }
 };
 
