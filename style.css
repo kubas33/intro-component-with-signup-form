@@ -30,7 +30,6 @@ section {
     background-size: cover;
     background-color: var(--col-prim-red);
     display: grid;
-    max-width: 90vw;
     margin: auto;
     text-align: center;
     color: hsl(0, 10%, 100%);
@@ -45,7 +44,7 @@ h1 {
     padding: 1.5rem 10vw 1.5rem;
 }
 
-hgroup {
+.descr-cont {
     padding: 3rem 0;
 }
 
@@ -177,7 +176,7 @@ img.error {
         font-size: clamp(1.5rem, 4vw, 3rem);
     }
 
-    hgroup {
+    .descr-cont {
         grid-row-start: 1;
         grid-row-end: 3;
         grid-column-start: 1;
@@ -186,6 +185,7 @@ img.error {
 
     .try-it {
         padding: 1rem clamp(1rem, 3vw, 3rem);
+        text-align: center;
     }
 
     .terms {
