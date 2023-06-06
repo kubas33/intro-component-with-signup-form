@@ -5,7 +5,7 @@ const password = document.getElementById("password");
 const form = document.querySelector("form");
 const inputs = document.getElementsByTagName("input");
 const submit = document.getElementById("submit");
-let hasErrors = true;
+//let hasErrors = true;
 
 
 function errorEmpty(input){
@@ -15,6 +15,10 @@ function errorEmpty(input){
     return `${input.placeholder} cannot be empty`;
 };
 
+function clearEror() {
+    return "";
+};
+
 function toggleErrors(state, object) {
     const error = object.parentNode.querySelector("p.error");
     const errorIcon = object.parentNode.querySelector("img.error");
@@ -22,12 +26,13 @@ function toggleErrors(state, object) {
         error.classList.add("active");
         errorIcon.classList.add("active");
         object.classList.add("invalid");
-        hasErrors = true;
+        //hasErrors = true;
     } else if (state == false) {
         error.classList.remove("active");
         errorIcon.classList.remove("active");
         object.classList.remove("invalid");
-        hasErrors = false;
+        error.textContent = clearEror();
+        //hasErrors = false;
     }
 }
 
@@ -49,7 +54,7 @@ function handleInputChange(event) {
             error.textContent = "Looks like this is not an email";
             toggleErrors(true, input);
         } else {
-            toggleErrors(false, input);
+            toggleErrors(false, input);           
         }
     }
     else {
